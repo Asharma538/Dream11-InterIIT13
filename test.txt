@@ -1,0 +1,24 @@
+# prompt = "Give the complete names for the following players, don't give anything in bold, just give full names in order:\n"
+
+# player_names_parts = []
+# temp = []
+# for i in df["player_name"]:
+#     temp.append(i)
+#     if len(temp) == 20:
+#         player_names_parts.append("\n".join(temp))
+#         temp = []
+# player_names_parts.append("\n".join(temp))
+
+# full_names = []
+# i=0
+# while i < len(player_names_parts):
+#     try:
+#         response = model.generate_content(prompt + player_names_parts[i])
+#         full_names.append(response.text)
+#         i+=1
+#         print("done",len(full_names))
+#     except Exception as e:
+#         print(e)
+#         time.sleep(60)
+#         continue
+
