@@ -183,7 +183,7 @@
     margin: auto;
 }
 
-#cricket-match-contest-details-tab{
+.cricket-match-contest-details-tab{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -321,5 +321,22 @@
     :focus-visible{
         outline: none;
     }
+}
 
+#cricket-match-contest-table{
+    display: flex;
+    justify-content: center;
+    margin: 20px 0px;
+    table{
+        color: rgb(179, 23, 23);
+        width: 50%;
+        td{
+            color: gray;
+        }
+    }
+    table, th, td{
+        padding: 10px;
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
 }
