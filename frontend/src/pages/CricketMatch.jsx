@@ -1,8 +1,13 @@
 import React from 'react'
+import MatchCarousel from '../components/MatchCarousel'
+import Navbar from '../components/Navbar'
 
 export default function CricketMatch() {
   return (
-    <div id='cricket-match-contests'>
+    <>
+      <Navbar selectedValue="cricket" />
+      <MatchCarousel />
+      <div id='cricket-match-contests'>
         <br />
         <h4 style={{fontSize:"23px"}}>Select a contest to join</h4>
         <br />
@@ -15,5 +20,6 @@ export default function CricketMatch() {
           </div>
         </div>
     </div>
+    </>
   )
 }

@@ -7,7 +7,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 export default function MatchCarousel() {
     const matches = [
         {"match":"Men's T20I Tri-Series ","time":"01:00 PM","team1":"India","team2":"Australia","date":"2021-12-27","team1Image":"src/assets/india_team.png","team2Image":"src/assets/aus_team.png"},
-        // {"match":"Men's T20I Tri-Series ","time":"01:00 PM","team1":"Netherlands","team2":"Sri Lanka","date":"2021-12-27","team1Image":"src/assets/react.svg","team2Image":"src/assets/dream-ai-robot.png"},
+        {"match":"Men's T20I Tri-Series ","time":"01:00 PM","team1":"England","team2":"South Africa","date":"2021-12-27","team1Image":"src/assets/india_team.png","team2Image":"src/assets/aus_team.png"},
     ]
   return (
     <Carousel showThumbs={false} autoPlay infiniteLoop interval={5000}>
