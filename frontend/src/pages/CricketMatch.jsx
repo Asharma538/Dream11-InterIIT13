@@ -24,8 +24,7 @@ function contestTileMaker(){
         </div>
         <button style={{"padding":"10px 20px","border":"none","borderRadius":"30px",backgroundColor: "#1DC120",color: "white"}}>
           Join for Rs. 49
-        </button>
-      </div>
+        </button>      </div>
     </div>
   </div>
 }
