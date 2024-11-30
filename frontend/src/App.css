@@ -106,3 +106,13 @@
         outline: none;
     }
 }
+
+#sport-selection-button{
+    background-color: rgba(48, 4, 4, 1);
+    color: white;
+    font-weight: 600;
+    border: none;
+    &:focus-visible{
+        outline: none;
+    }
+}
