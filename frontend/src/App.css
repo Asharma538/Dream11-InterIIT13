@@ -4,6 +4,72 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+#home-just-below-carousel{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    overflow: hidden; 
+}
+
+#home-just-below-carousel img {
+    height: 80%; 
+    width: auto; 
+    object-fit: contain; 
+}
+
+#home-video-tutorial{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    overflow: hidden; 
+}
+
+#home-video-tutorial img {
+    height: 80%; 
+    width: auto; 
+    object-fit: contain; 
+}
+
+#home-meet-our-winners{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#home-meet-our-winners div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    overflow: hidden; 
+}
+
+#home-meet-our-winners div img {
+    height: 80%; 
+    width: auto; 
+    object-fit: contain; 
+    margin: 0 20px;
+}
+
+#home-break-line{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 1px;
+    overflow: hidden; 
+    margin: 0 20px;
+    background-color: black;
+}
+
+
+
 #Navbar{
     background-color: rgba(48, 4, 4, 1);
     padding: 10px;
