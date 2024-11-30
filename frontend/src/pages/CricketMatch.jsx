@@ -13,10 +13,10 @@ export default function CricketMatch() {
         <br />
         <div id='cricket-match-contest-both-cards'>
           <div className='cricket-match-contest-card'>
-             f
+            f
           </div>
           <div className='cricket-match-contest-card'>
-             f
+            f
           </div>
         </div>
     </div>
