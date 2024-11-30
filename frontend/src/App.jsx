@@ -7,6 +7,7 @@ import Cricket from './pages/Cricket';
 import {Routes, Route, BrowserRouter as Router} from 'react-router-dom';
 import CricketMatch from './pages/CricketMatch';
 import CricketMatchContest from './pages/CricketMatchContest';
+import CricketMatchContestDetails from './pages/CricketMatchContestDetails';
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="/cricket" element={<Cricket />} />
         <Route path="/cricket-match" element={<CricketMatch />} />
         <Route path="/cricket-match-contest" element={<CricketMatchContest/>} />
+        <Route path="/cricket-match-contest-details" element={<CricketMatchContestDetails/>} />
       </Routes>
     </Router>
   )
