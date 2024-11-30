@@ -8,8 +8,8 @@ export default function MatchCarousel(props) {
   const matches = props.matches;
   return (
     <Carousel showThumbs={false} autoPlay infiniteLoop interval={5000}>
-      {matches.map((match) => (
-        <MatchTileWidget
+      {matches.map((match,index) => (
+        <MatchTileWidget key={index}
           match={match.match}
           time={match.time}
           team1={match.team1}
