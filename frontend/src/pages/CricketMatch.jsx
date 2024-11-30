@@ -6,6 +6,7 @@ export default function CricketMatch() {
   return (
     <>
     <Navbar selectedValue="cricket"/>
+    <MatchCarousel />
     <div id='cricket-match-contests'>
       <br />
       <h4 style={{ fontSize: "23px" }}>Select a contest to join</h4>
@@ -58,7 +59,7 @@ export default function CricketMatch() {
               <div>Winners: 30%</div>
             </div>
             <button style={{"padding":"10px","border":"1px solid gray","borderRadius":"30px",backgroundColor: "#1DC120"}}>
-              Join for Rs. 49 Only
+              Attempt Quiz
             </button>
           </div>
 
