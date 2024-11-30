@@ -7,9 +7,9 @@ import Home from './pages/Home';
 export default function App() {
   return (
     <div>
-      {/* <Navbar/> */}
-      {/* <MatchCarousel/> */}
-      <Home/>
+      <Navbar/>
+      <MatchCarousel/>
+      {/* <Home/> */}
     </div>
   )
 }
