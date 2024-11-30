@@ -21,7 +21,6 @@ export default function CricketMatch() {
           <div id='cricket-match-upcoming-contest-card'></div>
           <div id='cricket-match-upcoming-contest-card'></div>
           <div id='cricket-match-upcoming-contest-card'></div>
-
         </div>
 
       </div>
