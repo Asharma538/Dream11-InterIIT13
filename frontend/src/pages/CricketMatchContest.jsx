@@ -15,11 +15,9 @@ export default function CricketMatchContest() {
     <Navbar selectedValue="cricket"/>
     <MatchCarousel type="contest-prize" matches={matches} />
     <div id='cricket-match-details-info'>
-            <div>Want to reduce the entry fee?</div>
-            <div>
-            Play the <b><u>FANTASY QUIZ</u></b> and redeem <b>Dream Coins.</b>
-            </div>
-        </div>
+      <div>Want to reduce the entry fee?</div>
+      <div> Play the <b><u>FANTASY QUIZ</u></b> and redeem <b>Dream Coins.</b></div>
+    </div>
       
     <div id='cricket-match-contests'>
       <br />
