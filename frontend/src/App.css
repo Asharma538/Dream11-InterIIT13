@@ -349,3 +349,56 @@
     justify-content: start;
     align-items: center;
 }
+
+#team-preview-container{
+    background-color: black;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    > img{
+        width: 500px;
+    }
+    .wicket-keepers, .batters, .allrounders, .bowlers{
+        display: flex;
+        justify-content: center;
+    }
+    .wicket-keepers{
+        position: absolute;
+        top: 130px;
+        left: 50.5%;
+        transform: translate(-50%,-50%);
+    }
+    .batters{
+        position: absolute;
+        top: 280px;
+        left: 50.5%;
+        transform: translate(-50%,-50%);
+    }
+    .allrounders{
+        position: absolute;
+        top: 430px;
+        left: 50.5%;
+        transform: translate(-50%,-50%);
+    }
+    .bowlers{
+        position: absolute;
+        top: 580px;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    .team-preview-player{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 5px;
+        font-size: 13px;
+        font-weight: 500;
+        center{
+            padding: 4px;
+            border-radius: 5px;
+            background-color: white;
+        }
+    }
+}
