@@ -8,7 +8,7 @@ import VideoTutorial from '../components/VideoTutorial'
 export default function Cricket() {
   return (
     <>
-      <Navbar/>
+      <Navbar selectedValue='cricket' />
       <ImageCarousel />
       <HomeOfficialPartner/>
       <CardDisplayWidget title="Upcoming Matches" images={["src/assets/empty-image-for-winners.png", "src/assets/empty-image-for-winners.png", "src/assets/empty-image-for-winners.png"]} />

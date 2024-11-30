@@ -8,7 +8,7 @@ import CardDisplayWidget from '../components/CardDisplayWidget'
 export default function Home() {
     return (
         <>
-            <Navbar/>
+            <Navbar selectedValue='none' />
             <ImageCarousel />
             <HomeOfficialPartner />
             <VideoTutorial />
