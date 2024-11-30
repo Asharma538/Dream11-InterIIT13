@@ -76,6 +76,15 @@ export default function CricketMatchContest() {
         </div>
       </div>
     </div>
+    <div>
+      <div id='cricket-match-contest-details-tabs'>
+          <div id='cricket-match-contest-details-tab'>Prizes</div>
+          <div id='cricket-match-contest-details-tab'>Winners</div>
+          <div id='cricket-match-contest-details-tab'>Rules</div>
+      </div>
+    </div>
+
+
     </>
   )
 }
