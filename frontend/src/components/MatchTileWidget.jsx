@@ -22,9 +22,20 @@ export default function MatchTileWidget(props){
               {props.team2}
             </div>
           </center>
-          <button className="match-carousel-join-button">
-            Join a Contest
-          </button>
+          {
+            props.type === "contest-join" && (
+              <button className="match-carousel-join-button">
+                Join a contest
+              </button>
+            )
+          }
+          {
+            props.type === "quiz" && (
+              <button className="match-carousel-join-button">
+                Play Quiz
+              </button>
+            )
+          }
         </div>
       </div>
     </div>
