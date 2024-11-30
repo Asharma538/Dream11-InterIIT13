@@ -4,7 +4,9 @@ export default function CricketMatchContestDetails() {
   return (
     <>
         <div id='cricket-match-contest-details-info'>
-        Struggling to pick your team? Use &nbsp;<b> DREAM AI</b>
+            <div>
+            Struggling to pick your team? Use &nbsp;<b> DREAM AI</b>
+            </div>
         </div>
         <br />
         <div id='cricket-match-contest-details-tabs'>

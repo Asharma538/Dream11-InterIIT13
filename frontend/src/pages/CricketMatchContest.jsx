@@ -3,10 +3,20 @@ import MatchCarousel from '../components/MatchCarousel'
 import Navbar from '../components/Navbar'
 
 export default function CricketMatchContest() {
+    const matches = [
+        {"match":"Men's T20I Tri-Series ","time":"01:00 PM","team1":"India","team2":"Australia","date":"2021-12-27","team1Image":"src/assets/india_team.png","team2Image":"src/assets/aus_team.png"},
+    ]
   return (
     <>
     <Navbar selectedValue="cricket"/>
-    <MatchCarousel type="contest-prize" />
+    <MatchCarousel type="contest-prize" matches={matches} />
+    <div id='cricket-match-details-info'>
+            <div>Want to reduce the entry fee?</div>
+            <div>
+            Play the <b><u>FANTASY QUIZ</u></b> and redeem <b>Dream Coins.</b>
+            </div>
+        </div>
+      
     <div id='cricket-match-contests'>
       <br />
       <h4 style={{ fontSize: "23px" }}>Select a contest to join</h4>

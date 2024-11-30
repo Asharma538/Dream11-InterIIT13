@@ -30,9 +30,9 @@ export default function MatchTileWidget(props){
             )
           }
           {
-            props.type === "quiz" && (
-              <button className="match-carousel-join-button">
-                Play Quiz
+            props.type === "contest-prize" && (
+              <button className="match-carousel-prize-display" style={{fontWeight: 400}}>
+                Mega Contest: <span style={{fontWeight: 700}}>11.5 Lakhs</span>
               </button>
             )
           }
