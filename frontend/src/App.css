@@ -119,6 +119,7 @@
     align-self: center;
     padding: 0px;
     width: 100%;
+    margin: 15px;
 }
 
 #cricket-match-upcoming-contest-card{
@@ -158,11 +159,12 @@
 .cricket-match-contest-card{
     display: flex;
     flex-direction: column;
-    width: 45%;
+    width: 20%;
     background-color: white;
     border: 1px solid gray;
     border-radius: 10px;
     padding: 20px;
+    margin: 15px;
 }
 
 #cricket-match-contest-details-info, #cricket-match-details-info{
@@ -338,4 +340,12 @@
         border: 1px solid black;
         border-collapse: collapse;
     }
+}
+
+.cricket-match-contests{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: center;
 }
