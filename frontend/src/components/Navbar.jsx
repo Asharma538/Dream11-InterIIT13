@@ -12,7 +12,7 @@ export default function Navbar(props) {
     // Navigate to the route based on the selected value
     if (selectedValue === "cricket") {
       setSelectedValue(selectedValue);
-      navigate("/cricket", { state: { selectedValue: selectedValue } });
+      navigate("/cricket");
     }
   };
 

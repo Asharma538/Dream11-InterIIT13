@@ -8,6 +8,8 @@ import {Routes, Route, BrowserRouter as Router} from 'react-router-dom';
 import CricketMatch from './pages/CricketMatch';
 import CricketMatchContest from './pages/CricketMatchContest';
 import TeamPreview from './pages/TeamPreview';
+import DreamAITeam from './pages/DreamAITeam';
+import ConfirmYourTeam from './pages/ConfirmYourTeam';
 
 export default function App() {
   return (
@@ -18,6 +20,8 @@ export default function App() {
         <Route path="/cricket-match" element={<CricketMatch />} />
         <Route path="/cricket-match-contest" element={<CricketMatchContest/>} />
         <Route path="/team-preview" element={<TeamPreview/>} />
+        <Route path='/select-dream-team' element={<DreamAITeam/>} />
+        <Route path='/confirm-your-team' element={<ConfirmYourTeam/>} />
       </Routes>
     </Router>
   )
