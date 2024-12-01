@@ -20,35 +20,8 @@ export default function CricketMatchContest() {
     </div>
       
     <div id='cricket-match-contests'>
-      <br />
-      <h4 style={{ fontSize: "23px" }}>Select a contest to join</h4>
-      <br />
       <div id='cricket-match-contest-both-cards'>
-        <div className='cricket-match-contest-card'>
-          <h3>Prize Pool: <b>Rs. 14 crore</b></h3>
-          <br />
-          <hr />
-          <br />
-          <div style={{ border: "1px solid black", display: 'flex' }}>
-            <div style={{ backgroundColor: "#AD1E1E", height: "3px", width: "50%" }}></div>
-            <div style={{ backgroundColor: "white", height: "3px", width: "auto" }}></div>
-          </div>
-          <div style={{ height: "4px" }}></div>
-          <div style={{ color: "gray", display: "flex", justifyContent: "space-between", fontSize: "14px" }}>
-            <div>32,12,123 left</div>
-            <div>64,24,246 spots</div>
-          </div>
-          <br /><br />
-          <div style={{display:"flex", justifyContent:"space-between"}}>
-            <div style={{display:"flex", flexDirection:"column"}}>
-              <div>Prize: Rs. 1 crore</div>
-              <div>Winners: 66%</div>
-            </div>
-            <button style={{"padding":"10px","border":"none","borderRadius":"30px",backgroundColor: "#1DC120",color: "white"}}>
-              Join for Rs. 49 Only
-            </button>
-          </div>
-        </div>
+        
         <div className='cricket-match-contest-card'>
         <h3>Quiz</h3>
           <br />
@@ -73,6 +46,13 @@ export default function CricketMatchContest() {
               Attempt Quiz
             </button>
           </div>
+        </div>
+
+        <div id='cricket-match-contest-join-cards'>
+            
+            <img src="src/assets/dream-ai.png" alt="" />
+            <img src="src/assets/guru-team.png" alt="" />
+            <img src="src/assets/create-your-own-team.png" alt="" />
         </div>
       </div>
     </div>

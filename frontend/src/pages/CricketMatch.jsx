@@ -1,9 +1,10 @@
 import React from 'react'
 import MatchCarousel from '../components/MatchCarousel'
 import Navbar from '../components/Navbar'
+import { useNavigate } from 'react-router-dom';
 
-function contestTileMaker(contestDetails,index){
-  return <div className='cricket-match-contest-card' key={index}>
+function contestTileMaker(contestDetails,index,functionToCall) {
+  return <div className='cricket-match-card' key={index}>
       <h3>Prize Pool: <b> {contestDetails.prizePool} </b></h3>
       <br /><hr /><br />
       <div style={{ border: "1px solid black", display: 'flex' }}>
@@ -21,7 +22,7 @@ function contestTileMaker(contestDetails,index){
           <div> Prize: <b>{contestDetails.prize}</b> </div>
           <div> Winners: <b>{contestDetails.winners}</b></div>
         </div>
-        <button style={{"padding":"10px 20px","border":"none","borderRadius":"30px",backgroundColor: "#1DC120",color: "white"}}>
+        <button onClick={functionToCall[index]} style={{"padding":"10px 20px","border":"none","borderRadius":"30px",backgroundColor: "#1DC120",color: "white"}}>
           Join for Rs. {contestDetails.price}
         </button>
       </div>
@@ -29,6 +30,7 @@ function contestTileMaker(contestDetails,index){
 }
 
 export default function CricketMatch() {
+  const navigate = useNavigate();
   const matches = [
     {"match":"Men's T20I Tri-Series ","time":"01:00 PM","team1":"India","team2":"Australia","date":"2021-12-27","team1Image":"src/assets/india_team.png","team2Image":"src/assets/aus_team.png"}
   ]
@@ -39,6 +41,18 @@ export default function CricketMatch() {
     {prizePool: "Rs. 6 crore", spotsLeft: "42,12,123", totalSpots: "54,24,246", prize: "Rs. 50 lakh", winners: "33%", price: "19"},
     {prizePool: "Rs. 4 crore", spotsLeft: "52,12,123", totalSpots: "64,24,246", prize: "Rs. 25 lakh", winners: "22%", price: "9"},
     {prizePool: "Rs. 2 crore", spotsLeft: "62,12,123", totalSpots: "74,24,246", prize: "Rs. 10 lakh", winners: "11%", price: "5"},
+  ]
+
+  const handleJoinContest = () => {
+    navigate("/cricket-match-contest");
+  }
+  const functionToCall = [
+    ()=>handleJoinContest(),
+    ()=>{},
+    ()=>{},
+    ()=>{},
+    ()=>{},
+    ()=>{}
   ]
   return (
     <>
@@ -51,7 +65,7 @@ export default function CricketMatch() {
         <br />
         <div className='cricket-match-contests'>
           {
-            contests.map((contestDetails,index) => contestTileMaker(contestDetails))
+            contests.map((contestDetails,index) => contestTileMaker(contestDetails,index,functionToCall))
           }
         </div>
       </div>
