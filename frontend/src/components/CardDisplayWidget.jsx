@@ -11,9 +11,9 @@ export default function CardDisplayWidget(props) {
             <div><h4 style={{textDecoration:"underline",color:"gray"}}>View All</h4></div>
         </div>
         <div id='home-card-display-widget-img'>
-            <img src={props.images[0]} alt="" />
-            <img src={props.images[1]} alt="" />
-            <img src={props.images[2]} alt="" />
+            <img onClick={props.functions[0]} src={props.images[0]} alt="" />
+            <img onClick={props.functions[1]} src={props.images[1]} alt="" />
+            <img onClick={props.functions[2]} src={props.images[2]} alt="" />
         </div>
     </div>
   )
