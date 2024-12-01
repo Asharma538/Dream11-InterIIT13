@@ -34,7 +34,7 @@ export default function Navbar(props) {
             <option value="football">Football</option>
           </select>
         </div>
-        <div className="Navbar-button">Fantasy Quiz</div>
+        <div className="Navbar-button" onClick={()=>{navigate("/quiz")}}>Fantasy Quiz</div>
         <div className="Navbar-button">Dream AI</div>
       </div>
       <div>
