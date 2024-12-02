@@ -22,7 +22,7 @@ function contestTileMaker(contestDetails,index,functionToCall) {
           <div> Prize: <b>{contestDetails.prize}</b> </div>
           <div> Winners: <b>{contestDetails.winners}</b></div>
         </div>
-        <button onClick={functionToCall[index]} style={{"padding":"10px 20px","border":"none","borderRadius":"30px",backgroundColor: "#1DC120",color: "white"}}>
+        <button onClick={functionToCall[index]} style={{"padding":"10px 20px","border":"none","borderRadius":"30px",backgroundColor: "#1DC120",color: "white","cursor":"pointer"}}>
           Join for Rs. {contestDetails.price}
         </button>
       </div>

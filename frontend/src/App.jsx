@@ -10,6 +10,8 @@ import CricketMatchContest from './pages/CricketMatchContest';
 import TeamPreview from './pages/TeamPreview';
 import DreamAITeam from './pages/DreamAITeam';
 import ConfirmYourTeam from './pages/ConfirmYourTeam';
+import Quiz from './pages/Quiz';
+import PlayQuiz from './pages/PlayQuiz';
 
 export default function App() {
   return (
@@ -22,6 +24,8 @@ export default function App() {
         <Route path="/team-preview" element={<TeamPreview/>} />
         <Route path='/select-dream-team' element={<DreamAITeam/>} />
         <Route path='/confirm-your-team' element={<ConfirmYourTeam/>} />
+        <Route path='/quiz' element={<Quiz/>} />
+        <Route path='/start-quiz' element={<PlayQuiz/>} />
       </Routes>
     </Router>
   )
