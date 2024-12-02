@@ -26,7 +26,7 @@ export default function Quiz() {
          2. 9 correct &rarr; ₹9 discount on entry fees  <br />
          3. 8 correct &rarr; ₹8 discount on entry fees <br />
       </div>
-      <img id='quiz-img-1' src="src/assets/fantasy_quiz-2.png" alt="" />
+      <img id='quiz-img-1' src="src/assets/fantasy_quiz-3.png" alt="" />
       <img id='quiz-img-2' src="src/assets/fantasy_quiz.png" alt="" />
         {
           sessionStorage.getItem("quiz-taken")?

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "../App.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 var answered = false;
 export default function PlayQuiz() {
@@ -62,6 +63,13 @@ export default function PlayQuiz() {
     setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
   };
 
+  const complete_quiz = () => {
+    sessionStorage.setItem("quiz-taken",true)
+    // setTimeout(()=>{
+    //   navigate('/cricket-match-contest');
+    // },5000)
+  }
+
   const currentQuestion = questions[currentQuestionIndex];
 
   if (currentQuestionIndex < questions.length) {
@@ -98,10 +106,21 @@ export default function PlayQuiz() {
     );
   } else {
     return (
-      <div>
-        Redirecting ....
-        {sessionStorage.setItem("quiz-taken",true)}
-        {navigate('/cricket-match-contest')}
+      <div id='quiz-background'>
+        <Navbar/>
+        <div id="quiz-title-text">
+          <span>Fantasy Quiz</span> <p>By</p> <img src="src/assets/dream_11.png" alt="" width="160px" height="40px" />
+        </div>
+        <div id="quiz-result-desc">
+          <u><span>Quiz Results:</span></u>
+          <br /> <br />
+          Congratulations!! <br />
+          You've got {score}/10 Questions correct!
+          <br /> <br />
+          The Joining Price will be reduced by Rs. 10
+        </div>
+        <img id='quiz-img-1' src="src/assets/fantasy_quiz-3.png" alt="" />
+        <img id='quiz-img-2' src="src/assets/fantasy_quiz.png" alt="" />
       </div>
     )
   }
