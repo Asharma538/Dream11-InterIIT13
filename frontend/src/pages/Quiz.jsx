@@ -28,7 +28,13 @@ export default function Quiz() {
       </div>
       <img id='quiz-img-1' src="src/assets/fantasy_quiz-2.png" alt="" />
       <img id='quiz-img-2' src="src/assets/fantasy_quiz.png" alt="" />
-      <button id='quiz-play-button' onClick={()=>{navigate("/start-quiz")}}>Play</button>
+        {
+          sessionStorage.getItem("quiz-taken")?
+          <button id='quiz-play-button' onClick={()=>{navigate("/start-quiz")}} disabled> Played </button>
+          :
+          <button id='quiz-play-button' onClick={()=>{navigate("/start-quiz")}} > Play </button>
+          
+        }
     </div>
   )
 }

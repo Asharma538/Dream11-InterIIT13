@@ -81,7 +81,8 @@
     justify-content: space-around;
     align-items: center;
     height: 500px;
-    overflow: hidden; 
+    overflow: hidden;
+    cursor: pointer;
 }
 
 #home-card-display-widget-img img {
@@ -355,6 +356,7 @@
     border: none;
     background-color: rgba(29, 193, 32, 1);
     color: white;
+    cursor: pointer;
     :focus-visible{
         outline: none;
     }
@@ -563,6 +565,7 @@
         margin: 20px;
         background-color: rgb(5, 224, 5);
         border-radius: 5px;
+        cursor: pointer;
         outline: none; border: none;
         height: 40px;
         color: white;
@@ -624,6 +627,7 @@
     left: 50%;
     transform: translate(-50%,-50%);
     background-color: rgb(5, 224, 5);
+    cursor: pointer;
     outline: none;
     border: none;
     height: 45px;

@@ -1,8 +1,10 @@
 import React from 'react'
 import MatchCarousel from '../components/MatchCarousel'
 import Navbar from '../components/Navbar'
+import { useNavigate } from 'react-router-dom'
 
 export default function CricketMatchContest() {
+    const navigate = useNavigate();
     const matches = [
         {"match":"Men's T20I Tri-Series ","time":"01:00 PM","team1":"India","team2":"Australia","date":"2021-12-27","team1Image":"src/assets/india_team.png","team2Image":"src/assets/aus_team.png"},
     ]
@@ -42,8 +44,10 @@ export default function CricketMatchContest() {
               <div>Prize: 10 Dream Coins</div>
               <div>Winners: 30%</div>
             </div>
-            <button style={{"padding":"10px","border":"none","borderRadius":"30px",backgroundColor: "#1DC120",color: "white"}}>
-              Attempt Quiz
+            <button style={{"padding":"10px","border":"none","borderRadius":"30px",backgroundColor: "#1DC120",color: "white",cursor:"pointer"}} onClick={()=>{navigate("/quiz")}}>
+              {
+                sessionStorage.getItem("quiz-taken")?"Attempted":"Attempt Quiz"
+              }
             </button>
           </div>
         </div>
