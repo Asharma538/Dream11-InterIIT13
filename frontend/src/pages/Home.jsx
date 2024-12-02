@@ -12,7 +12,7 @@ export default function Home() {
             <ImageCarousel />
             <HomeOfficialPartner />
             <VideoTutorial />
-            <CardDisplayWidget title="Meet our winners" images={["src/assets/empty-image-for-winners.png", "src/assets/empty-image-for-winners.png", "src/assets/empty-image-for-winners.png"]} />
+            <CardDisplayWidget title="Meet our winners" functions={[()=>{},()=>{},()=>{}]} images={["src/assets/empty-image-for-winners.png", "src/assets/empty-image-for-winners.png", "src/assets/empty-image-for-winners.png"]} />
             <div id='home-break-line' />
 
             <div id='home-other-sports'>
