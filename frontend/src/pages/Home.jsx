@@ -4,11 +4,13 @@ import ImageCarousel from '../components/ImageCarousel'
 import HomeOfficialPartner from '../components/HomeOfficialPartner'
 import VideoTutorial from '../components/VideoTutorial'
 import CardDisplayWidget from '../components/CardDisplayWidget'
+import Chatbot from '../components/Chatbot'
 
 export default function Home() {
     return (
         <>
             <Navbar selectedValue='none' />
+            <Chatbot/>
             <ImageCarousel />
             <HomeOfficialPartner />
             <VideoTutorial />
