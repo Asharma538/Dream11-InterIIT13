@@ -34,7 +34,7 @@ export default function ConfirmYourTeam(props) {
             <br />
             <div style={{display:"flex",justifyContent:"space-around"}}>
                 <div id='confirm-your-team-captain-selection'>
-                    <b>Select Your Caption: </b>
+                    <b>Select Your Captain: </b>
                     <select>
                         {players.map(player => {
                             return (
@@ -45,7 +45,7 @@ export default function ConfirmYourTeam(props) {
                 </div>
                 <br />
                 <div id='confirm-your-team-vice-captain-selection'>
-                    <b>Select Your Vice Caption: </b>
+                    <b>Select Your Vice Captain: </b>
                     <select>
                         {players.map(player => {
                             return (

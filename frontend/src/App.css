@@ -493,6 +493,7 @@
         width: 95%;
         td{
             color: gray;
+            text-align: center;
         }
     }
 

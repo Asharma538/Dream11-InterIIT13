@@ -1,5 +1,6 @@
 import React from "react";
 import "../App.css";
+import Chatbot from "../components/Chatbot";
 
 export default function TeamPreview() {
   const team = {
@@ -10,6 +11,7 @@ export default function TeamPreview() {
   };
   return (
     <div id="team-preview-container">
+      <Chatbot/>
       <img src="src/assets/pitch.png" alt="" srcset="" height="100%" />
       <div className="wicket-keepers">
         {team.wc.map((player, index) => {

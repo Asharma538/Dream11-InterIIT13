@@ -2,6 +2,7 @@ import React from 'react'
 import MatchCarousel from '../components/MatchCarousel'
 import Navbar from '../components/Navbar'
 import { useNavigate } from 'react-router-dom';
+import Chatbot from '../components/Chatbot';
 
 function contestTileMaker(contestDetails,index,functionToCall) {
   return <div className='cricket-match-card' key={index}>
@@ -57,6 +58,7 @@ export default function CricketMatch() {
   return (
     <>
       <Navbar selectedValue="cricket" />
+      <Chatbot/>
       {/* <MatchCarousel type="contest-join"  matches={matches} /> */}
       <MatchCarousel matches={matches} />
       <div id='cricket-match'>

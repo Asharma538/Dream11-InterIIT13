@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { MdDelete, MdOutlinePersonAddAlt1 } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
+import Chatbot from '../components/Chatbot';
 
 
 export default function DreamAITeam() {
@@ -52,6 +53,7 @@ export default function DreamAITeam() {
 
   return (
     <div id='dream-ai-team'>
+                  <Chatbot/>
         <div style={{display:"flex",flexDirection:"row",justifyContent:"space-between",alignItems:"flex-end"}}>
           <div><b>DREAM AI PLAYERS</b></div>
           <div style={{display:"flex",flexDirection:"row",justifyContent:"space-between",width:"500px"}}>
