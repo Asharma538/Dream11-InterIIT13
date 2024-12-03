@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { MdDelete, MdOutlinePersonAddAlt1 } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
+import Chatbot from '../components/Chatbot';
 
 
 export default function DreamAITeam() {
@@ -52,9 +53,19 @@ export default function DreamAITeam() {
 
   return (
     <div id='dream-ai-team'>
-        <br />
-        <b>DREAM AI PLAYERS</b>
-        <div id='dream-ai-team-selected-table'>
+                  <Chatbot/>
+        <div style={{display:"flex",flexDirection:"row",justifyContent:"space-between",alignItems:"flex-end"}}>
+          <div><b>DREAM AI PLAYERS</b></div>
+          <div style={{display:"flex",flexDirection:"row",justifyContent:"space-between",width:"500px"}}>
+            <button id='dream-ai-team-preview-button' onClick={handlePreviewButton}>
+              Preview Team
+            </button>
+            <button id='dream-ai-team-next-button' onClick={handleNextButton}>
+              Next
+            </button>
+        </div>
+          </div>
+          <div id='dream-ai-team-selected-table'>
           <table>
               <tr>
                   <th style={{width: "12%"}}>PLAYER</th>
@@ -105,13 +116,6 @@ export default function DreamAITeam() {
               }
           </table>
         </div>
-
-        <button id='dream-ai-team-preview-button' onClick={handlePreviewButton}>
-          Preview Team
-        </button>
-        <button id='dream-ai-team-next-button' onClick={handleNextButton}>
-          Next
-        </button>
     </div>
   )
 }
