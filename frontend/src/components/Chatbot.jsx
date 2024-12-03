@@ -30,8 +30,12 @@ export default function Chatbot() {
     .then((response) => response.json())
     .then(async (res) => {
       if (res.response==""){
+        // updatedChats.push(["Sorry! Can you please rephrase your question?",false]);
+        // console.log("updated chats are ",updatedChats);
         setChats((chats)=>[...chats, ["Sorry! Can you please rephrase your question?",false]]);
       } else {
+        // updatedChats.push([res.response,true]);
+        // console.log("updated chats are ",updatedChats);
         setChats((chats)=>[...chats, [res.response,false]]);
       }
       
@@ -41,22 +45,23 @@ export default function Chatbot() {
           "Content-type": "application/json",
         },
         body: JSON.stringify({
-          "text": res.response,
+          "text": res.response==""?"Sorry! Can you please rephrase your question?":res.response,
         }),
       }).then(async (audio_res)=>{
         const audioBlob = await audio_res.blob();
         const audioURL = URL.createObjectURL(audioBlob);
         // console.log(audioURL);
-        // const audio = new Audio(audioURL);
+        const audio = new Audio(audioURL);
         // audio.play();
-        console.log("hello",chats);
-        let updatedChats = chats;
-        updatedChats[chats.length-1][1] = new Audio(audioURL);
-        setChats(chats=>updatedChats);
+        // console.log("hello",chats);
+        // let updatedChats = chats;
+        // updatedChats[chats.length-1][1] = new Audio(audioURL);
+
+        setChats(chats=>[...chats.slice(0,chats.length-1),[chats[chats.length-1][0],audio]]);
+        console.log(chats);
       })
     });
   }
-  console.log(chats);
   const chatTextRef = useRef(null)
   const chatSendRef = useRef(null)
 

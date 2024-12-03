@@ -476,7 +476,7 @@
 #dream-ai-team{
     display: flex;
     flex-direction: column;
-    margin: 20px 40px; 
+    margin: 0px 40px; 
 }
 
 #dream-ai-team-selected-table,#remaining-players-selected-table, #confirm-your-team-selected-table{
@@ -507,7 +507,7 @@
     padding: 15px;
     margin: 15px;
     font-size: 20px;
-    width: 20%;
+    width: 100%;
     align-self: center;
     font-weight: 500;
     border-radius: 40px;
@@ -523,7 +523,7 @@
     padding: 15px;
     margin: 15px;
     font-size: 20px;
-    width: 20%;
+    width: 100%;
     align-self: center;
     border: none;
     border-radius: 40px;
