@@ -1014,3 +1014,38 @@
         font-size: 14px;
     }
 }
+
+.predict-team{
+    background-image: radial-gradient(circle,rgb(139, 15, 1),rgba(117, 13, 13, 1));
+    height: calc(100vh - 67px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    h2{
+        position: absolute;
+        top: 50px;
+        margin: 50px;
+    }
+    input{
+        margin: 50px;
+        border: 3px solid black;
+        border-radius: 15px;
+        background-color: rgb(255,255,255,0);
+    }
+    input::file-selector-button{
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        outline: none; border: none;
+        margin-right: 10px;
+        color: black;
+    }
+    button{
+        outline: none; border: none;
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+    }
+}

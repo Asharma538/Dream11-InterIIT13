@@ -11,6 +11,7 @@ import ConfirmYourTeam from './pages/ConfirmYourTeam';
 import Quiz from './pages/Quiz';
 import PlayQuiz from './pages/PlayQuiz';
 import DreamAI from "./pages/DreamAI";
+import TeamPredictor from './pages/TeamPredictor';
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
         <Route path='/quiz' element={<Quiz/>} />
         <Route path='/start-quiz' element={<PlayQuiz/>} />
         <Route path='/dream-ai' element={<DreamAI/>} />
+        <Route path='/predict-team' element={<TeamPredictor/>} />
       </Routes>
     </Router>
   )

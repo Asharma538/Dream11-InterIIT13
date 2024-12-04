@@ -12,7 +12,6 @@ export default function DreamAITeam() {
 
   const [selectedPlayers,setSelectedPlayers]=useState([])
   const [remainingPlayers,setRemainingPlayers]=useState([])
-
   
   useEffect(()=>{
     if(state.remainingPlayers===undefined){
