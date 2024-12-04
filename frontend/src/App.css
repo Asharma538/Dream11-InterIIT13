@@ -493,28 +493,73 @@
 }
 
 #dream-ai-team-selected-table,#remaining-players-selected-table, #confirm-your-team-selected-table{
-    display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #F4F4F4;
-    margin: 20px 0;
-    padding: 40px 0;
-    border: 1px solid #F4F4F4;
+    justify-items: center;
+    margin: 20px 40px;
     border-radius: 10px;
-    table{
-        color: rgb(179, 23, 23);
-        width: 95%;
-        td{
-            color: gray;
-            text-align: center;
-        }
-    }
-
+    padding: 5px;
     table, th, td{
-        padding: 10px;
+        /* padding: 10px; */
+        align-content: center;
+        height: 40px;
         border: 1px solid black;
         border-collapse: collapse;
-    }
+    } */
+    table {
+        width: 100%;
+        border: none;
+        border-top: 1px solid #EEEEEE;
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+      }
+  
+      td,
+      th {
+        color: rgb(179, 23, 23);
+        border: 1px solid #EEEEEE;
+        border-top: none;
+        /* padding: 10px; */
+        text-align: center;
+        font-size: 14px;
+      }
+
+      td{
+        color: black;
+      }
+
+      tr {
+        background-color: #fff;
+        border: none;
+        cursor: pointer;
+        display: grid;
+        grid-template-columns: 260px 260px 260px 260px 260px 40px;
+        justify-content: flex-start;
+        /* width: 1000px; */
+      }
+  
+      tr:first-child:hover {
+        cursor: default;
+        background-color: #fff;
+      }
+/*   
+      tr:hover {
+        background-color: #EEF4FD;
+      }
+   */
+      .expanded-row-content {
+        border-top: none;
+        display: grid;
+        grid-column: 1/-1;
+        justify-content: flex-start;
+        /* color: #AEB1B3; */
+        font-size: 13px;
+        background-color: #fff;
+      }
+  
+      .hide-row {
+        display: none;
+      }
 }
 
 #dream-ai-team-preview-button{
@@ -957,5 +1002,15 @@
     to {
         width: 350px;
         font-size: 25px;
+    }
+}
+
+#confirm-your-team-captain-selection,#confirm-your-team-vice-captain-selection{
+    select{
+        padding: 10px;
+        border: #555;
+        margin: 0px 10px;
+        border-radius: 5px;
+        font-size: 14px;
     }
 }
