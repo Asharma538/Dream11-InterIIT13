@@ -100,7 +100,7 @@ export default function DreamAI() {
                     index%2==0 &&
                     <img id='chatbot-icon' src="src/assets/chatbot.png" alt=""/> 
                   }
-                  <p style={{backgroundColor: index%2==1?"hsla(0, 82%, 30%, 1)":"inherit"}}>{chat[0]}</p>
+                  <p style={{backgroundColor: index%2==1?"hsla(0, 82%, 30%, 1)":"inherit"}} className={index==0?"first-chat":""}>{chat[0]}</p>
                   {
                     chat[1] &&
                     <img id='chat-speaker' src='src/assets/speaker.png' alt='' onClick={
