@@ -1,12 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react'
-import "../App.css"
-
+import React from 'react'
+import { useState, useEffect, useRef } from 'react'
+import Navbar from '../components/Navbar'
 
 const CHATBOT_URL = import.meta.env.VITE_CHATBOT_URL
 const AUDIO_MODEL_URL = import.meta.env.VITE_AUDIO_MODEL_URL
 
-export default function Chatbot() {
-  const [chatOpen, setChatOpen] = useState(false);
+export default function DreamAI() {
   const [chats, setChats] = useState([["Hello! How can I help you today?",true]]);
 
   async function getResponse(msg) {
@@ -65,6 +64,7 @@ export default function Chatbot() {
       console.error("Error:", error);
     });
   }
+
   const chatTextRef = useRef(null)
   const chatSendRef = useRef(null)
 
@@ -86,53 +86,41 @@ export default function Chatbot() {
     })
   }, []);
 
-  const openChatbot = () => {
-    if (chatOpen==false) {
-      document.getElementsByClassName("chatbot")[0].classList.add("chatbot-open");
-      setChatOpen(true);
-    }
-  }
-
-  const closeChatbot = () => {
-    if (chatOpen) {
-      document.getElementsByClassName("chatbot")[0].classList.remove("chatbot-open");
-      setChatOpen(false);
-    }
-  }
 
   return (
-    <div className='chatbot' onClick={()=>{openChatbot()}}>
-      <img src="src/assets/chatbot.png" alt="" />
-      <div className='chat-close' onClick={()=>{closeChatbot()}}>
-        <img src="src/assets/close.png" alt="" width="15px" />
-      </div>
-      <div className='chats-container'>
-        {
-          chats.map((chat,index)=>{
-            return (
-              <div className='chatbot-chat' key={index} style={{display:"flex", justifyContent:index%2==1?"right":"left"}}>
-                {
-                  index%2==0 &&
-                  <img id='chatbot-icon' src="src/assets/chatbot.png" alt=""/> 
-                }
-                <p style={{backgroundColor: index%2==1?"hsla(0, 82%, 30%, 1)":"inherit"}}>{chat[0]}</p>
-                {
-                  chat[1] &&
-                  <img id='chat-speaker' src='src/assets/speaker.png' alt='' onClick={
-                    ()=>{
-                      console.log(chat);
-                      chat[1].play();
-                    }
-                  }/>
-                }
-              </div>
-            )
-          })
-        }
-      </div>
-      <div className='chat-input'>
-        <input ref={chatTextRef} id='chat-text' type="text" placeholder="Type your message here" />
-        <button ref={chatSendRef} id='chat-send'>Send</button>
+    <div>
+      <Navbar selectedValue='none' />
+      <div id="dream-ai-chatbot">
+        <div id='dream-ai-chatbot-chats-container'>
+          {
+            chats.map((chat,index)=>{
+              return (
+                <div className='chatbot-chat' key={index} style={{display:"flex", justifyContent:index%2==1?"right":"left"}}>
+                  {
+                    index%2==0 &&
+                    <img id='chatbot-icon' src="src/assets/chatbot.png" alt=""/> 
+                  }
+                  <p style={{backgroundColor: index%2==1?"hsla(0, 82%, 30%, 1)":"inherit"}}>{chat[0]}</p>
+                  {
+                    chat[1] &&
+                    <img id='chat-speaker' src='src/assets/speaker.png' alt='' onClick={
+                      ()=>{
+                        console.log(chat);
+                        chat[1].play();
+                      }
+                    }/>
+                  }
+                </div>
+              )
+            })
+          }
+        </div>
+        <div className='chat-input'>
+          <input ref={chatTextRef} id='chat-text' type="text" placeholder="Type your message here" />
+          <button ref={chatSendRef} id='chat-send'>
+            <img src="src/assets/send-button.png" alt="" width='40px' />
+          </button>
+        </div>
       </div>
     </div>
   )

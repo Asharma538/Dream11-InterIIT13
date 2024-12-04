@@ -1,7 +1,5 @@
 import React from 'react'
 import './App.css';
-import Navbar from './components/Navbar'
-import MatchCarousel from './components/MatchCarousel';
 import Home from './pages/Home';
 import Cricket from './pages/Cricket';
 import {Routes, Route, BrowserRouter as Router} from 'react-router-dom';
@@ -12,6 +10,7 @@ import DreamAITeam from './pages/DreamAITeam';
 import ConfirmYourTeam from './pages/ConfirmYourTeam';
 import Quiz from './pages/Quiz';
 import PlayQuiz from './pages/PlayQuiz';
+import DreamAI from "./pages/DreamAI";
 
 export default function App() {
   return (
@@ -26,6 +25,7 @@ export default function App() {
         <Route path='/confirm-your-team' element={<ConfirmYourTeam/>} />
         <Route path='/quiz' element={<Quiz/>} />
         <Route path='/start-quiz' element={<PlayQuiz/>} />
+        <Route path='/dream-ai' element={<DreamAI/>} />
       </Routes>
     </Router>
   )

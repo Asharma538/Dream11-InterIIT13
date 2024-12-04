@@ -35,7 +35,7 @@ export default function Navbar(props) {
           </select>
         </div>
         <div className="Navbar-button" onClick={()=>{navigate("/quiz")}}>Fantasy Quiz</div>
-        <div className="Navbar-button">Dream AI</div>
+        <div className="Navbar-button" onClick={()=>{navigate("/dream-ai")}}>Dream AI</div>
       </div>
       <div>
         <select name='Languages' id='Navbar-language-button'>
