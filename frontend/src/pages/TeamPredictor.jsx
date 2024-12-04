@@ -37,7 +37,30 @@ export default function TeamPredictor() {
     <div>
       <Navbar selectedValue="none"/>
       <div className='predict-team'>
-        <h2>Upload Team Info CSV</h2>
+        <center><h2>Predict Your Dream Team</h2></center>
+        <div>
+          <table>
+            <tr>
+              <th colSpan="4">Sample CSV with 22 Players</th>
+            </tr>
+            <tr>
+            
+            <th className='sample-csv-header'>Player Name</th> 
+            <th className='sample-csv-header'>Squad</th> 
+            <th className='sample-csv-header'>Match Date</th> 
+            <th className='sample-csv-header'>Format</th>
+            </tr>
+            <tr>
+              <td>A Capsey</td> <td>England</td> <td>2021-09-01</td> <td>ODI</td>
+            </tr>
+            <tr><td>.</td><td>.</td><td>.</td><td>.</td></tr>
+            <tr><td>.</td><td>.</td><td>.</td><td>.</td></tr>
+            <tr><td>.</td><td>.</td><td>.</td><td>.</td></tr>
+            <tr>
+              <td>IC Gaze</td> <td>New Zealand</td> <td>2021-09-01</td> <td>ODI</td>
+            </tr>
+          </table>
+        </div>
         <div>
           <input type="file" accept=".csv" onChange={handleFileChange} />
           <button onClick={handleUpload}>Predict</button>

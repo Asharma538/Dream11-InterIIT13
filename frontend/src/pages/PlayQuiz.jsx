@@ -77,9 +77,9 @@ export default function PlayQuiz() {
 
   const complete_quiz = () => {
     sessionStorage.setItem("quiz-taken",true)
-    // setTimeout(()=>{
-    //   navigate('/cricket-match-contest');
-    // },5000)
+    setTimeout(()=>{
+      navigate('/cricket-match-contest');
+    },5000)
   }
 
 
@@ -152,6 +152,9 @@ export default function PlayQuiz() {
         </div>
         <img id='quiz-img-1' src="src/assets/fantasy_quiz-4.png" alt="" />
         <img id='quiz-img-2' src="src/assets/fantasy_quiz.png" alt="" />
+        {
+          complete_quiz()
+        }
       </div>
     )
   }

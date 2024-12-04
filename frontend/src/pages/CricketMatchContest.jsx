@@ -22,16 +22,23 @@ export default function CricketMatchContest() {
     }
 
     const handleCreateDreamTeam = async () => {
+      const formData = new FormData();
+      const response = await fetch('src/assets/train_data.csv');
+      const blob = await response.blob();
+      const file = new File([blob], 'train_data.csv', { type: 'text/csv' });
+      formData.append('file', file);
+
       await fetch(BACKEND_URL+"/predict", {
-        method: "POST",
-        headers: {
-          "Content-type": "text/plain",
-        },
-      }).then((response) => response.json())
-      .then((response) => {
-        console.log("Received response is ",response);
-        navigate("/select-dream-team", { state: { match: response } });
+        method: 'POST',
+        body: formData,
       })
+        .then(response => response.json())
+        .then(data => {
+          navigate("/select-dream-team", { state: { match: data } });
+        })
+        .catch(error => {
+          console.error('Error uploading file:', error);
+        });
     }
   return (
     <>

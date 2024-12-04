@@ -11,7 +11,6 @@ export default function DreamAITeam() {
   const navigate = useNavigate()
   const [selectionReason,setSelectionReason] = useState({});
 
-
   const [selectedPlayers,setSelectedPlayers]=useState([])
   const [remainingPlayers,setRemainingPlayers]=useState([])
   
@@ -63,6 +62,11 @@ export default function DreamAITeam() {
   }
 
   const addPlayer=(id)=>{
+    console.log(selectedPlayers.length);
+    if (selectedPlayers.length==11){
+      alert("You can select only 11 players")
+      return
+    }
     let newRemainingPlayers=remainingPlayers.filter(player=>player.id!==id)
     newRemainingPlayers.sort((a, b) => b.points - a.points);
     let newSelectedPlayers=selectedPlayers.concat(remainingPlayers.filter(player=>player.id===id))
@@ -81,7 +85,7 @@ export default function DreamAITeam() {
       navigate('/confirm-your-team',{ state: { selectedPlayers: selectedPlayers } })
     }
     else{
-      
+      alert("Select 11 players to proceed");
     }
   }
   const toggleRowSelected = (index) => {
@@ -132,10 +136,12 @@ export default function DreamAITeam() {
                     <td>{player.points}</td>
                     <td>{player.credits}</td>
                     <td style={{width:"20px",color:"gray"}}><MdDelete onClick={()=>deSelectPlayer(player.id)}/></td>
-                    <td style={{width:"1320px",padding:"10px",textAlign:"left"}} className='expanded-row-content hide-row'>
-                      {
-                        selectionReason[player.name]!==undefined? selectionReason[player.name]:""
-                      }
+                    <td style={{width:"1320px",backgroundColor:"white",padding:"10px",height:"max-content",textAlign:"left",border:"1px solid black"}} className='expanded-row-content hide-row'>
+                      <pre>
+                        {
+                          selectionReason[player.name]!==undefined? selectionReason[player.name]:""
+                        }
+                      </pre>
                     </td>
                   </tr>
                 })
@@ -163,8 +169,7 @@ export default function DreamAITeam() {
                     <td>{player.country}</td>
                     <td>{player.points}</td>
                     <td>{player.credits}</td>
-                    <td style={{width:"20px",color:"gray"}}><MdOutlinePersonAddAlt1 onClick={()=>deSelectPlayer(player.id)}/></td>
-                    <td style={{width:"1320px",padding:"10px",textAlign:"left"}} className='expanded-row-content hide-row'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In animi unde minima, nesciunt facere architecto voluptatem ea totam soluta, sunt perspiciatis voluptatibus atque et iste dicta quibusdam excepturi velit aperiam alias. Dolor itaque corrupti vitae accusantium quae distinctio iste labore assumenda facere eius omnis, delectus esse ullam, eos, minus veritatis enim quisquam. Dicta laudantium pariatur itaque, ex quibusdam, tempore dolores, eos repudiandae sed accusamus tenetur.</td>
+                    <td style={{width:"20px",color:"gray"}}><MdOutlinePersonAddAlt1 onClick={()=>addPlayer(player.id)}/></td>
                   </tr>
                 })
               }

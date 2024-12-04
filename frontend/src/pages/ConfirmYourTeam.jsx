@@ -20,7 +20,14 @@ export default function ConfirmYourTeam(props) {
             <div style={{display:"flex",justifyContent:"space-around"}}>
                 <div id='confirm-your-team-captain-selection'>
                     <b>Select Your Captain: </b>
-                    <select defaultValue={captain} onChange={(val)=>setCaptain(val.target.value)}>
+                    <select defaultValue={captain} onChange={
+                        (val)=>{
+                            if (val.target.value === viceCaptain) {
+                                alert("Player is already made a Vice Captain!")
+                                return;
+                            }
+                            setCaptain(val.target.value)
+                        }}>
                         {players.map(player => {players[0].name
                             return (
                                 <option value={player.name}>{player.name}</option>
@@ -31,12 +38,21 @@ export default function ConfirmYourTeam(props) {
                 <br />
                 <div id='confirm-your-team-vice-captain-selection'>
                     <b>Select Your Vice Captain: </b>
-                    <select defaultValue={viceCaptain} onChange={(val)=>setViceCaptain(val.target.value)}>
+                    <select defaultValue={viceCaptain} onChange={
+                        (val)=>{
+                            if (val.target.value === captain) {
+                                alert("Player is already made a Captain!")
+                                return;
+                            }
+                            setViceCaptain(val.target.value)
+                        }
+                    }>
                         {players.map(player => {
                             return (
                                 <option value={player.name}>{player.name}</option>
                             )
-                        })}
+                            })
+                        }
                     </select>
                 </div>
             </div>
@@ -88,37 +104,6 @@ export default function ConfirmYourTeam(props) {
                                 <div style={{ flexGrow: 1 }}>
                                     {player.name} 
                                 </div>
-                                {captain === player.name ? (
-                                    <img 
-                                        style={{
-                                            position: "relative", 
-                                            right: "0px", 
-                                            width: "30px", 
-                                            height: "30px", 
-                                            objectFit: "contain",
-                                            borderRadius: "50%",
-                                            scale:"1.03"
-                                        }} 
-                                        src="src/assets/captain-tag.png" 
-                                        alt="caption tag"
-                                    />
-                                ) : ""}
-                                {
-                                    viceCaptain === player.name ? (
-                                        <img 
-                                            style={{
-                                                position: "relative", 
-                                                right: "0px", 
-                                                width: "30px", 
-                                                height: "30px", 
-                                                objectFit: "contain",
-                                                borderRadius: "50%",
-                                            }} 
-                                            src="src/assets/vice-captain-tag.png" 
-                                            alt="vice caption tag"
-                                        />
-                                    ) : ""
-                                }
                                 <div style={{width:"20px"}}></div>
 
                             </td>
