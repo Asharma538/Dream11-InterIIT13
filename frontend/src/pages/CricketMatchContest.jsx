@@ -4,6 +4,8 @@ import Navbar from '../components/Navbar'
 import { useNavigate } from 'react-router-dom'
 import Chatbot from '../components/Chatbot';
 
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL
+
 export default function CricketMatchContest() {
     const navigate = useNavigate();
     const matches = [
@@ -12,6 +14,19 @@ export default function CricketMatchContest() {
     const [selectedTab, setSelectedTab] = React.useState("prizes");
     const changeSelectedTab = (tab) => {
         setSelectedTab(tab);
+    }
+
+    const handleCreateDreamTeam = async () => {
+      await fetch(BACKEND_URL, {
+        method: "POST",
+        headers: {
+          "Content-type": "text/plain",
+        },
+      }).then((response) => response.json())
+      .then((response) => {
+        console.log("Received response is ",response);
+        navigate("/select-dream-team", { state: { match: response } });
+      })
     }
   return (
     <>
@@ -56,7 +71,7 @@ export default function CricketMatchContest() {
 
         <div id='cricket-match-contest-join-cards'>
             
-            <img src="src/assets/dream-ai.png" alt="" />
+            <img src="src/assets/dream-ai.png" alt="" onClick={handleCreateDreamTeam} />
             <img src="src/assets/guru-team.png" alt="" />
             <img src="src/assets/create-your-own-team.png" alt="" />
         </div>

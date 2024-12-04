@@ -1,5 +1,6 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom';
+import Chatbot from '../components/Chatbot';
 
 export default function ConfirmYourTeam(props) {
     const { state } = useLocation();
@@ -7,6 +8,7 @@ export default function ConfirmYourTeam(props) {
     console.log(players)
     return (
         <div id='confirm-your-team'>
+            <Chatbot/>
             <b>SELECTED PLAYERS</b>
             <div id='confirm-your-team-selected-table'>
                 <table>
@@ -35,7 +37,7 @@ export default function ConfirmYourTeam(props) {
             <div style={{display:"flex",justifyContent:"space-around"}}>
                 <div id='confirm-your-team-captain-selection'>
                     <b>Select Your Captain: </b>
-                    <select>
+                    <select defaultValue={players[0].name}>
                         {players.map(player => {
                             return (
                                 <option value={player.name}>{player.name}</option>
@@ -46,7 +48,7 @@ export default function ConfirmYourTeam(props) {
                 <br />
                 <div id='confirm-your-team-vice-captain-selection'>
                     <b>Select Your Vice Captain: </b>
-                    <select>
+                    <select defaultValue={players[1].name}>
                         {players.map(player => {
                             return (
                                 <option value={player.name}>{player.name}</option>
