@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Italianno&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Labrada&family=Montserrat:wght@300&family=Nunito:wght@600&family=Open+Sans&family=Roboto&family=Roboto+Slab&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -72,6 +74,13 @@
     object-fit: contain; 
 }
 
+#video-tutorial-img video {
+    height: 80%; 
+    width: auto; 
+    object-fit: contain; 
+    border-radius: 20px;
+}
+
 #home-card-display-widget{
     display: flex;
     flex-direction: column;
@@ -84,16 +93,16 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    height: 500px;
+    height: 350px;
     overflow: hidden;
     cursor: pointer;
 }
 
 #home-card-display-widget-img img {
-    height: 80%; 
-    width: 28%;
-    object-fit: contain; 
+    height: 80%;
+    width: 30%;
     margin: 0 20px;
+    border-radius: 50px;
 }
 
 #home-card-display-widget-text{
@@ -234,7 +243,6 @@
 }
 
 
-
 #cricket-match-contest-details-info, #cricket-match-details-info{
     width: 100%;
     height: 50px;
@@ -243,6 +251,7 @@
     justify-content: center;
     align-items: center;
     background: #FBDA43;
+    cursor: pointer;
 }
 
 #cricket-match-contest-details-tabs{
@@ -348,13 +357,16 @@
 .match-carousel-tile-team{
     width: 150px;
     margin: 10px;
+    font-size: 25px;
 }
 
 .match-carousel-tile-team img{
     border-radius: 50%;
     width: 100px;
     height: 150px;
-    margin-bottom: 20px;
+    scale: 1.5;
+    margin-bottom: 50px;
+    background-size: cover;
 }
 
 .match-carousel-tile-time h3{
@@ -380,6 +392,7 @@
 }
 
 .match-carousel-prize-display{
+    transform: translate(0px,-35px);
     padding: 15px;
     font-size: 20px;
     font-weight: 500;
@@ -593,10 +606,12 @@
     height: 100vh;
     #quiz-img-1{
         position: absolute;
-        top: 250px;
+        top: 200px;
         right: 70px;
         width: 450px;
         border-radius: 10%;
+        animation-name: bring_image;
+        animation-duration: 0.5s;
     }
     #quiz-img-2{
         position: absolute;
@@ -604,8 +619,21 @@
         left: 100px;
         width: 350px;
         border-radius: 10%;
+        animation-name: bring_image;
+        animation-duration: 0.5s;
+        scale: 1.1;
     }
 }
+
+@keyframes bring_image {
+    from {
+        transform: scale(0.5);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
 
 #start-quiz-background{
     background-image: radial-gradient(rgb(186, 10, 10),rgb(114, 9, 9));
@@ -655,12 +683,16 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    margin: 50px 0px 0px 0px;
+    align-items: center;
+    margin: 10px 0px 0px 0px;
     span{
-        font-size: 35px;
+        font-size: 70px;
         font-weight: 600;
         color: rgba(255, 216, 36, 1);
         margin: 20px;
+        font-family: "Kanit", sans-serif;
+        font-weight: 400;
+        font-style: normal;
     }
     p{
         font-size: 30px;
@@ -674,19 +706,28 @@
 
 #quiz-desc{
     position: absolute;
-    top: 35%;
-    left: 36%;
+    top: 33%;
+    left: 35%;
     color: white;
+    padding: 15px;
     font-size: 20px;
-    span{
+    div{
+        background-color: rgb(186, 10, 10);
+        margin-bottom: 40px;
+        padding: 15px;
+        border-radius: 15px;
+    }
+    center{
+        width: 100%;
         font-size: 25px;
         font-weight: 600;
+        margin-bottom: 10px;
     }
 }
 
 #quiz-play-button{
     position: absolute;
-    top: 80%;
+    top: 93%;
     left: 50%;
     transform: translate(-50%,-50%);
     background-color: rgb(5, 224, 5);
@@ -706,9 +747,9 @@
 
 #quiz-timer{
     position: absolute;
-    top: 60px;
-    left: 100px;
-    font-size: 30px;
+    top: 30px;
+    right: 60px;
+    font-size: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -725,9 +766,9 @@
         background-color: white;
         color: black;
         border-radius: 50%;
-        width: 100px;
-        height: 100px;
-        font-size: 40px;
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
         font-weight: 600;
     }
 }
@@ -872,6 +913,95 @@
         display: flex;
         flex-direction: row;
         padding: 10px;
+    }
+}
+
+#dream-ai-chatbot{
+    background-color: rgb(114, 9, 9);
+    height: calc(100vh - 65px);
+    display: flex;
+    justify-content: center;
+    #dream-ai-chatbot-chats-container{
+        width: 65%;
+        .chatbot-chat{
+            color: white;
+            padding: 10px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        p{
+            padding: 16px 16px;
+            border-radius: 15px 15px 0 15px;
+        }
+    }
+    #chatbot-icon{
+        width: 50px;
+        height: 60px;
+    }
+    #chat-speaker{
+        width: 25px;
+        height: 25px;
+        margin: 16px 10px;
+    }
+    .chat-input{
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%,0);
+        width: 65%;
+        display: flex;
+        align-items: center;
+        input{
+            margin: 10px 0px 10px 10px;
+            border-radius: 15px 0 0 15px;
+            border: 1px solid black;
+            width: calc(100% - 115px);
+            height: 40px;
+            padding: 10px;
+            outline: none;
+            background-color: rgb(139, 14, 14);
+            color: white;
+            :focus-visible{
+                outline: none;
+            }
+            &::placeholder{
+                color: rgb(193, 193, 193);
+                opacity: 1;
+            }
+            &::-ms-input-placeholder { /* Edge 12 -18 */
+                color: rgb(138, 0, 0);
+                opacity: 1;
+            }
+        }
+        button{
+            border-radius: 0 15px 15px 0;
+            border: 1px solid black;
+            width: 65px;
+            height: 60px;
+            background-color: rgb(209, 9, 29);
+            color: white;
+            font-weight: 600;
+        }
+    }
+}
+
+.first-chat{
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    animation: typing 2s forwards;
+    font-size: 16px;
+}
+
+@keyframes typing {
+    from {
+        width: 0px;
+        font-size: 25px;
+    }
+    to {
+        width: 350px;
+        font-size: 25px;
     }
 }
 

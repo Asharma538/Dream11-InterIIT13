@@ -9,7 +9,12 @@ const BACKEND_URL = import.meta.env.VITE_BACKEND_URL
 export default function CricketMatchContest() {
     const navigate = useNavigate();
     const matches = [
-        {"match":"Men's T20I Tri-Series ","time":"01:00 PM","team1":"India","team2":"Australia","date":"2021-12-27","team1Image":"src/assets/india_team.png","team2Image":"src/assets/aus_team.png"},
+        {"match":"Men's T20I Tri-Series ",
+          "time":"01:00 PM","team1":"India",
+          "team2":"South Africa","date":"2021-12-27",
+          "team1Image":"src/assets/indian_flag.png",
+          "team2Image":"src/assets/south_african_flag.png"
+        },
     ]
     const [selectedTab, setSelectedTab] = React.useState("prizes");
     const changeSelectedTab = (tab) => {
@@ -33,11 +38,11 @@ export default function CricketMatchContest() {
     <Navbar selectedValue="cricket"/>
     <MatchCarousel type="contest-prize" matches={matches} />
     <Chatbot/>
-    <div id='cricket-match-details-info'>
+    <div id='cricket-match-details-info' onClick={()=>{navigate("/quiz")}}>
       <div>Want to reduce the entry fee?</div>
       <div> Play the <b><u>FANTASY QUIZ</u></b> and redeem <b>Dream Coins</b></div>
     </div>
-      
+
     <div id='cricket-match-contests'>
       <div id='cricket-match-contest-both-cards'>
         

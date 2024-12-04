@@ -5,24 +5,33 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
 var answered = false;
+var start = false;
+
 export default function PlayQuiz() {
-  const questions = [
-    {
-      question: "What is the capital of India?",
-      options: ["Mumbai", "Delhi", "Kolkata", "Chennai"],
-      "correct-option": "Delhi",
-    },
-    {
-      question: "What is the capital of USA?",
-      options: ["New York", "Washington DC", "Los Angeles", "Chicago"],
-      "correct-option": "Washington DC",
-    },
-    {
-      question: "What is the capital of Australia?",
-      options: ["Sydney", "Melbourne", "Canberra", "Brisbane"],
-      "correct-option": "Canberra",
-    },
-  ];
+  const [questions, setQuestions] = useState([]);
+
+  const getQuestions = async () => {
+    await fetch("http://10.36.16.97:11434/api/generate", {
+      method: "POST",
+      body: JSON.stringify({
+        model: "phi3:14b",
+        prompt: "Generate a quiz about Cricket focusing on player facts as questions. Provide 10 questions in the following format. Don't give any starter text. Give the json list in the format: { 'question':'question text goes here','options':['A. Option Text','B. Option Text','C. Text','D. Option Text'],'correct-option':'Correct Option Text'}",
+        stream: false,
+      }),
+      headers: {
+        "Content-type": "text/plain",
+      },
+    })
+    .then((res) => res.json())
+    .then(res=>{
+      const qns = JSON.parse(res.response);
+      console.log(qns);
+      setQuestions(qns);
+      start = true;
+    })
+    .catch(err=>console.log(err));
+  }
+
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
   const [secondsLeft, setSecondsLeft] = useState(10);
@@ -38,15 +47,18 @@ export default function PlayQuiz() {
     }
 
     const timerId = setInterval(() => {
-      setSecondsLeft((prevTime) => prevTime - 1);
+      if (start) setSecondsLeft((prevTime) => prevTime - 1);
     }, 1000);
 
     return () => clearInterval(timerId);
   }, [secondsLeft]);
 
+  useEffect(() => {
+    getQuestions();
+  }, []);
+
   const handleOptionClick = (option) => {
     setSelectedOption(option);
-    console.log(answered,option,score);
     if (option == questions[currentQuestionIndex]["correct-option"]) {
       answered = true;
       setScore(score + 1);
@@ -70,9 +82,18 @@ export default function PlayQuiz() {
     // },5000)
   }
 
-  const currentQuestion = questions[currentQuestionIndex];
 
-  if (currentQuestionIndex < questions.length) {
+  const currentQuestion = questions[currentQuestionIndex];
+  if (questions.length == 0) {
+    return (
+      <div id="start-quiz-background">
+        <h2>
+          Loading....
+        </h2>
+      </div>
+    )
+  }
+  else if (currentQuestionIndex < questions.length) {
     return (
       <div id="start-quiz-background">
         <div id="quiz-timer">
@@ -114,12 +135,22 @@ export default function PlayQuiz() {
         <div id="quiz-result-desc">
           <u><span>Quiz Results:</span></u>
           <br /> <br />
-          Congratulations!! <br />
-          You've got {score}/10 Questions correct!
+          {
+            score>=8?
+              <div>
+                Congratulations!! <br />
+                You've got {score}/10 Questions correct!
+                <br />
+                You are eligible for ₹{score} discount on entry fees  
+              </div>:
+              <div>
+              <br /> <br />
+                Sorry, you're not eligible for the discount
+              </div>
+          }
           <br /> <br />
-          The Joining Price will be reduced by Rs. 10
         </div>
-        <img id='quiz-img-1' src="src/assets/fantasy_quiz-3.png" alt="" />
+        <img id='quiz-img-1' src="src/assets/fantasy_quiz-4.png" alt="" />
         <img id='quiz-img-2' src="src/assets/fantasy_quiz.png" alt="" />
       </div>
     )

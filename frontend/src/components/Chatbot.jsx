@@ -19,7 +19,8 @@ export default function Chatbot() {
                 If you don't get my question please ask again. \
                 Give good concize and clear response.\
                 Don't give anything unnecessary information in response that is not related to my query.\
-                Always limit the response to a maximum of 50 words\
+                Always limit the response to a maximum of 50 words.\
+                From now on your name is Dream AI.\
                 Here's my prompt: "+msg,
         stream: false,
       }),
@@ -60,6 +61,9 @@ export default function Chatbot() {
         setChats(chats=>[...chats.slice(0,chats.length-1),[chats[chats.length-1][0],audio]]);
         console.log(chats);
       })
+    })
+    .catch((error) => {
+      console.error("Error:", error);
     });
   }
   const chatTextRef = useRef(null)

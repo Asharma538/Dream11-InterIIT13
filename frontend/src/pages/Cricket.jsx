@@ -18,7 +18,7 @@ export default function Cricket() {
       <Chatbot/>
       <ImageCarousel />
       <HomeOfficialPartner/>
-      <CardDisplayWidget title="Upcoming Matches" functions={[handleClickFirstImage,()=>{},()=>{}]} images={["src/assets/match-thumbnail-indaus.png", "src/assets/match-thumbnail-nzeng.png", "src/assets/match-thumbnail-engwi.png"]} />
+      <CardDisplayWidget title="Upcoming Matches" functions={[handleClickFirstImage,()=>{},()=>{}]} images={["src/assets/match-thumbnail-indsa.jpg", "src/assets/match-thumbnail-wi-sa.jpg", "src/assets/match-thumbnail-usaeng.jpg"]} />
       <VideoTutorial/>
     </>
   )

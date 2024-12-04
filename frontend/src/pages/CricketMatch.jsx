@@ -33,7 +33,12 @@ function contestTileMaker(contestDetails,index,functionToCall) {
 export default function CricketMatch() {
   const navigate = useNavigate();
   const matches = [
-    {"match":"Men's T20I Tri-Series ","time":"01:00 PM","team1":"India","team2":"Australia","date":"2021-12-27","team1Image":"src/assets/india_team.png","team2Image":"src/assets/aus_team.png"}
+    {"match":"Men's T20I Tri-Series ",
+      "time":"01:00 PM","team1":"India",
+      "team2":"South Africa","date":"2021-12-27",
+      "team1Image":"src/assets/indian_flag.png",
+      "team2Image":"src/assets/south_african_flag.png"
+    },
   ]
   const contests = [
     {prizePool: "Rs. 14 crore", spotsLeft: "32,12,123", totalSpots: "64,24,246", prize: "Rs. 3 crore", winners: "66%", price: "99"},
