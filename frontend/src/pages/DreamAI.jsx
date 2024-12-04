@@ -8,7 +8,7 @@ const AUDIO_MODEL_URL = import.meta.env.VITE_AUDIO_MODEL_URL
 export default function DreamAI() {
   const [chats, setChats] = useState([["Hello! How can I help you today?",true]]);
 
-  async function getResponse(msg) {
+  const getResponse = async (msg) => {
     await fetch(CHATBOT_URL, {
       method: "POST",
       body: JSON.stringify({
@@ -29,15 +29,11 @@ export default function DreamAI() {
     .then((response) => response.json())
     .then(async (res) => {
       if (res.response==""){
-        // updatedChats.push(["Sorry! Can you please rephrase your question?",false]);
-        // console.log("updated chats are ",updatedChats);
         setChats((chats)=>[...chats, ["Sorry! Can you please rephrase your question?",false]]);
       } else {
-        // updatedChats.push([res.response,true]);
-        // console.log("updated chats are ",updatedChats);
         setChats((chats)=>[...chats, [res.response,false]]);
       }
-      
+
       await fetch(AUDIO_MODEL_URL, {
         method: "POST",
         headers: {
@@ -49,15 +45,8 @@ export default function DreamAI() {
       }).then(async (audio_res)=>{
         const audioBlob = await audio_res.blob();
         const audioURL = URL.createObjectURL(audioBlob);
-        // console.log(audioURL);
         const audio = new Audio(audioURL);
-        // audio.play();
-        // console.log("hello",chats);
-        // let updatedChats = chats;
-        // updatedChats[chats.length-1][1] = new Audio(audioURL);
-
         setChats(chats=>[...chats.slice(0,chats.length-1),[chats[chats.length-1][0],audio]]);
-        console.log(chats);
       })
     })
     .catch((error) => {
@@ -67,22 +56,23 @@ export default function DreamAI() {
 
   const chatTextRef = useRef(null)
   const chatSendRef = useRef(null)
-
   useEffect(() => {
-    chatTextRef.current.addEventListener("keydown", async function(event) {
+    chatTextRef.current.addEventListener("keydown", async (event) => {
       if (event.key === "Enter") {
         const message = chatTextRef.current.value;
         chatTextRef.current.value = "";
         setChats((chats)=>[...chats, [message]]);
         await getResponse(message);
+        console.log(chats);
       }
     })
 
-    chatSendRef.current.addEventListener("click", async function(event) {
+    chatSendRef.current.addEventListener("click", async (event)=> {
       const message = chatTextRef.current.value;
       chatTextRef.current.value = "";
       setChats((chats)=>[...chats, [message]]);
       await getResponse(message);
+      console.log(chats);
     })
   }, []);
 
@@ -105,7 +95,6 @@ export default function DreamAI() {
                     chat[1] &&
                     <img id='chat-speaker' src='src/assets/speaker.png' alt='' onClick={
                       ()=>{
-                        console.log(chat);
                         chat[1].play();
                       }
                     }/>

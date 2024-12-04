@@ -22,7 +22,7 @@ export default function CricketMatchContest() {
     }
 
     const handleCreateDreamTeam = async () => {
-      await fetch(BACKEND_URL, {
+      await fetch(BACKEND_URL+"/predict", {
         method: "POST",
         headers: {
           "Content-type": "text/plain",

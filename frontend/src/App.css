@@ -1017,7 +1017,7 @@
 
 .predict-team{
     background-image: radial-gradient(circle,rgb(139, 15, 1),rgba(117, 13, 13, 1));
-    height: calc(100vh - 67px);
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -19,7 +19,7 @@ export default function TeamPredictor() {
       const formData = new FormData();
       formData.append('file', file);
       console.log("Got file:",file);
-      fetch(VITE_BACKEND_URL, {
+      fetch(VITE_BACKEND_URL+"/predict", {
         method: 'POST',
         body: formData,
       })

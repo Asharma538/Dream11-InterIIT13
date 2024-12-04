@@ -3,11 +3,13 @@ import { MdDelete, MdOutlinePersonAddAlt1 } from "react-icons/md";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Chatbot from '../components/Chatbot';
 
+const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 export default function DreamAITeam() {
   const {state} = useLocation()
   const match=state.match
   const navigate = useNavigate()
+  const [selectionReason,setSelectionReason] = useState({});
 
 
   const [selectedPlayers,setSelectedPlayers]=useState([])
@@ -18,7 +20,6 @@ export default function DreamAITeam() {
         let dt=[]
         console.log("match is ",match);
         for (const x in match) {
-          console.log("x is ",x,match[x]);
           dt.push({
             "id":x,
             "name":match[x].player_name,
@@ -28,7 +29,6 @@ export default function DreamAITeam() {
             "credits":match[x].credits
           })
         }
-        console.log("dt is ",dt);
         dt.sort((a, b) => b.points - a.points);
         setSelectedPlayers(dt.slice(0,11));
         setRemainingPlayers(dt.slice(11));
@@ -38,6 +38,20 @@ export default function DreamAITeam() {
         setRemainingPlayers(state.remainingPlayers)
     }
     },[match])
+
+  useEffect(()=>{
+    fetch(VITE_BACKEND_URL+"/reason-prediction", {
+      method: 'POST',
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log("Received response ",data);
+        setSelectionReason(data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  },[])
     
   const deSelectPlayer=(id)=>{
     let newSelectedPlayers=selectedPlayers.filter(player=>player.id!==id)
@@ -118,7 +132,11 @@ export default function DreamAITeam() {
                     <td>{player.points}</td>
                     <td>{player.credits}</td>
                     <td style={{width:"20px",color:"gray"}}><MdDelete onClick={()=>deSelectPlayer(player.id)}/></td>
-                    <td style={{width:"1320px",padding:"10px",textAlign:"left"}} className='expanded-row-content hide-row'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In animi unde minima, nesciunt facere architecto voluptatem ea totam soluta, sunt perspiciatis voluptatibus atque et iste dicta quibusdam excepturi velit aperiam alias. Dolor itaque corrupti vitae accusantium quae distinctio iste labore assumenda facere eius omnis, delectus esse ullam, eos, minus veritatis enim quisquam. Dicta laudantium pariatur itaque, ex quibusdam, tempore dolores, eos repudiandae sed accusamus tenetur.</td>
+                    <td style={{width:"1320px",padding:"10px",textAlign:"left"}} className='expanded-row-content hide-row'>
+                      {
+                        selectionReason[player.name]!==undefined? selectionReason[player.name]:""
+                      }
+                    </td>
                   </tr>
                 })
               }

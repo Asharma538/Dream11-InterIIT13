@@ -109,12 +109,12 @@ if st.session_state.active_tab == "tab-1":
         test_to_date = st.date_input("To-Date80p", value=date.today(), key="test_to_date")
         # uploaded_file = st.file_uploader("Upload Model")
         # model = get_results_from_model(uploaded_file,test_from_date,test_to_date)
-        st.write("Do you want to test on just train model? Use 1 for it. Otherwise use 0 to test on model trained by total data")
+        st.write("Do you want to test on currently trained model? Use 1 for it. Otherwise use 0 to test on model trained on complete training period")
         cols = st.columns(7)
         with cols[3]:
             value = st.slider("Value", 0, 1, 1, label_visibility="collapsed")
             print(value)
-
+        
         # Display the value in the larger column
         if st.button("Submit", key="submit_button_2"):
             # Print final metrics
