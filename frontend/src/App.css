@@ -483,12 +483,13 @@
     flex-direction: column;
     align-items: center;
     justify-items: center;
-    margin: 20px 30px;
+    margin: 20px 40px;
     border-radius: 10px;
-    padding: 20px;
-    background-color: rgb(206, 99, 99);
+    padding: 5px;
     table, th, td{
-        padding: 10px;
+        /* padding: 10px; */
+        align-content: center;
+        height: 40px;
         border: 1px solid black;
         border-collapse: collapse;
     } */
@@ -513,7 +514,7 @@
       td{
         color: black;
       }
-  
+
       tr {
         background-color: #fff;
         border: none;
@@ -871,5 +872,15 @@
         display: flex;
         flex-direction: row;
         padding: 10px;
+    }
+}
+
+#confirm-your-team-captain-selection,#confirm-your-team-vice-captain-selection{
+    select{
+        padding: 10px;
+        border: #555;
+        margin: 0px 10px;
+        border-radius: 5px;
+        font-size: 14px;
     }
 }

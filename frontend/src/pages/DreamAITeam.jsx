@@ -71,9 +71,15 @@ export default function DreamAITeam() {
       
     }
   }
-  const toggleRow = (index) => {
+  const toggleRowSelected = (index) => {
 
-    const element =  document.getElementById(`id-for-expanding-${index}`);
+    const element =  document.getElementById(`id-for-expanding-selected-${index}`);
+    element.getElementsByClassName('expanded-row-content')[0].classList.toggle('hide-row');
+    // element.getElementsByClassName('expanded-row-content')[0].classList.toggle('hide-row');
+    console.log(event);
+  }
+  const toggleRowRemaining = (index) => {
+    const element =  document.getElementById(`id-for-expanding-remaining-${index}`);
     element.getElementsByClassName('expanded-row-content')[0].classList.toggle('hide-row');
     // element.getElementsByClassName('expanded-row-content')[0].classList.toggle('hide-row');
     console.log(event);
@@ -83,7 +89,7 @@ export default function DreamAITeam() {
     <div id='dream-ai-team'>
                   <Chatbot/>
         <div style={{display:"flex",flexDirection:"row",justifyContent:"space-between",alignItems:"flex-end"}}>
-          <div><b>DREAM AI PLAYERS</b></div>
+          <div><h2><b>DREAM AI PLAYERS</b></h2></div>
           <div style={{display:"flex",flexDirection:"row",justifyContent:"space-between",width:"500px"}}>
             <button id='dream-ai-team-preview-button' onClick={handlePreviewButton}>
               Preview Team
@@ -106,8 +112,8 @@ export default function DreamAITeam() {
               </tr>
               {
                 selectedPlayers.map((player,index)=>{
-                  return <tr id={`id-for-expanding-${index}`} key={index}>
-                    <td onClick={()=>toggleRow(index)}>{player.name}</td>
+                  return <tr id={`id-for-expanding-selected-${index}`} key={index}>
+                    <td onClick={()=>toggleRowSelected(index)}>{player.name}</td>
                     <td>{player.role}</td>
                     <td>{player.country}</td>
                     <td>{player.points}</td>
@@ -121,26 +127,27 @@ export default function DreamAITeam() {
         </div>
 
         <br />
-        <b>REMAINING PLAYERS</b>
+        <div><h2><b>REMAINING PLAYERS</b></h2></div>
         <div id='remaining-players-selected-table'>
           <table>
               <tr>
-                <th style={{width: "12%"}}>PLAYER</th>
-                <th style={{width: "12%"}}>ROLE</th>
-                <th style={{width: "12%"}}>COUNTRY</th>
-                <th style={{width: "8%"}}>POINTS</th>
-                <th style={{width: "8%"}}>CREDITS</th>
-                <th style={{width: "1%"}}></th>
+                <th>PLAYER</th>
+                <th>ROLE</th>
+                <th>COUNTRY</th>
+                <th>POINTS</th>
+                <th>CREDITS</th>
+                <th></th>
               </tr>
               {
                 remainingPlayers.map((player,index)=>{
-                  return <tr key={index}>
-                    <td>{player.name}</td>
+                  return <tr id={`id-for-expanding-remaining-${index}`} key={index}>
+                    <td onClick={()=>toggleRowRemaining(index)}>{player.name}</td>
                     <td>{player.role}</td>
                     <td>{player.country}</td>
                     <td>{player.points}</td>
                     <td>{player.credits}</td>
-                    <td><MdOutlinePersonAddAlt1 onClick={()=>addPlayer(player.id)}/></td>
+                    <td style={{width:"20px",color:"gray"}}><MdOutlinePersonAddAlt1 onClick={()=>deSelectPlayer(player.id)}/></td>
+                    <td style={{width:"1320px",padding:"10px",textAlign:"left"}} className='expanded-row-content hide-row'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In animi unde minima, nesciunt facere architecto voluptatem ea totam soluta, sunt perspiciatis voluptatibus atque et iste dicta quibusdam excepturi velit aperiam alias. Dolor itaque corrupti vitae accusantium quae distinctio iste labore assumenda facere eius omnis, delectus esse ullam, eos, minus veritatis enim quisquam. Dicta laudantium pariatur itaque, ex quibusdam, tempore dolores, eos repudiandae sed accusamus tenetur.</td>
                   </tr>
                 })
               }
